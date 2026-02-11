@@ -1,4 +1,4 @@
-// Pure nonsense for the sake of fun
+// Adiciona um monte de partículas e coisas desnecessárias pro texto. 
 const h2 = document.querySelector('.flaunty');
 for (let i = 0; i < 25; i++) {
   const spark = document.createElement('span');

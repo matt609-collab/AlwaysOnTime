@@ -3,6 +3,8 @@
   const eventList = document.getElementById('event-list');
   const addBtn = document.getElementById('add-btn');
 
+  //Variáveis que são adquiridas do HTML
+
   const events = {
     1: [
       { titulo: 'Hino Nacional', cor: 'azul', convidados: ['rosangela@escola.pr.gov.br'], detalhes: 'Cerimônia na escola às 8h.' },
@@ -14,6 +16,8 @@
       { titulo: 'Treino', cor: 'roxo', convidados: [], detalhes: 'Ginásio da escola.' }
     ]
   };
+
+  //Eventos pré-salvos no calendário e seus atributos
 
   for (let i = 1; i <= 31; i++) {
     const day = document.createElement('div');
@@ -33,6 +37,8 @@
     selectedDate.textContent = `Dia ${day}/10/2025`;
     renderEvents();
   }
+
+  //Função que exibe o evento que foi selecionado do calendário, caso exista um 
 
   function renderEvents() {
     eventList.innerHTML = '';
@@ -55,6 +61,8 @@
     updateDots();
   }
 
+  //Renderiza os eventos do dia, se houver algum
+
   function updateDots() {
     document.querySelectorAll('.event-dots').forEach(dotArea => dotArea.innerHTML = '');
     Object.keys(events).forEach(day => {
@@ -69,6 +77,8 @@
     });
   }
 
+  //atualiza as bolinhas que representam os eventos do calendário, adicionando ou remonvendo elas
+
   function getColor(nome) {
     const cores = {
       verde: '#4caf50',
@@ -79,6 +89,8 @@
     };
     return cores[nome] || '#999';
   }
+
+  //seleciona a cor da bolinha sendo adicionada
 
   addBtn.addEventListener('click', () => {
     if (!selectedDay) {
@@ -104,3 +116,4 @@
   });
 
   updateDots();
+  //verifica cliques para adicionar um evento
